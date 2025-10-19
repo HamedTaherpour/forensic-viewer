@@ -174,7 +174,6 @@ For complete API specification, see:
 
 - [`BACKEND_API.md`](./doc/BACKEND_API.md) - Complete API specification
 - [`HOTSPOTS_GUIDE.md`](./doc/HOTSPOTS_GUIDE.md) - How to use and configure hotspots
-- [`HOTSPOT_EDITOR_GUIDE.md`](./doc/HOTSPOT_EDITOR_GUIDE.md) - Complete hotspot editor usage guide
 - [`PANORAMA_GUIDE.md`](./doc/PANORAMA_GUIDE.md) - Panorama viewer usage guide
 
 ## 🖼️ Image Requirements
