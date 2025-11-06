@@ -1,4 +1,4 @@
-# Bina - 360° Panorama Viewer
+# Forensic Viewer - 360° Panorama Viewer
 
 A professional 360-degree panorama viewer application with interactive hotspots (points of interest). Built with Next.js, React, and Pannellum.
 
@@ -22,7 +22,7 @@ A professional 360-degree panorama viewer application with interactive hotspots 
 ## 📁 Project Structure
 
 ```
-/home/hamed/projects/bina/
+forensic-viewer/
 ├── doc/
 │   ├── BACKEND_API.md                 # Complete API documentation
 │   ├── HOTSPOTS_GUIDE.md              # Hotspot usage guide
@@ -51,7 +51,7 @@ A professional 360-degree panorama viewer application with interactive hotspots 
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
@@ -75,9 +75,11 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ## 🎯 Usage
 
 ### Viewing Panoramas
+
 Visit the main page at [http://localhost:3000](http://localhost:3000) to view panoramas with interactive hotspots.
 
 ### Editing Hotspots
+
 1. Click the **"حالت ویرایش"** (Edit Mode) button in the top-right corner
 2. Select a hotspot to edit from the panorama or from the list below
 3. Use the sidebar editor to modify:
@@ -100,12 +102,14 @@ The application currently uses mock data from `/src/data/mock-panoramas.ts`. Thi
 When your backend is ready:
 
 1. **Set environment variable:**
+
    ```bash
    # Create .env.local file
    NEXT_PUBLIC_API_URL=https://your-backend.com/api
    ```
 
 2. **Disable mock data:**
+
    ```typescript
    // src/services/panorama.service.ts
    const USE_MOCK_DATA = false; // Change to false
@@ -120,16 +124,19 @@ When your backend is ready:
 Your backend should implement these endpoints:
 
 #### 1. Get All Panoramas
+
 ```
 GET /api/panoramas
 ```
 
 #### 2. Get Panorama by ID
+
 ```
 GET /api/panoramas/{id}
 ```
 
 #### 3. Search Panoramas (Optional)
+
 ```
 GET /api/panoramas/search?q={query}
 ```
@@ -137,6 +144,7 @@ GET /api/panoramas/search?q={query}
 ### Complete Documentation
 
 For complete API specification, see:
+
 - [`BACKEND_API.md`](./doc/BACKEND_API.md) - Complete API documentation
 
 ## 🎨 Data Structure
@@ -179,6 +187,7 @@ For complete API specification, see:
 ## 🖼️ Image Requirements
 
 For panorama images:
+
 - **Format**: JPEG or PNG
 - **Type**: Equirectangular (360° × 180°)
 - **Aspect Ratio**: 2:1
@@ -230,6 +239,7 @@ const USE_MOCK_DATA = true; // Set to false for production
 ## 🤝 Backend Integration Checklist
 
 ### Standard Panoramas
+
 - [ ] Database setup completed
 - [ ] Tables created (panoramas, hotspots)
 - [ ] Sample images uploaded to CDN
@@ -238,6 +248,7 @@ const USE_MOCK_DATA = true; // Set to false for production
 - [ ] CORS configured
 
 ### Testing & Deployment
+
 - [ ] Tested with cURL/Postman
 - [ ] API URL shared with frontend team
 - [ ] Environment variable set in frontend
@@ -248,17 +259,20 @@ const USE_MOCK_DATA = true; // Set to false for production
 ## 🐛 Troubleshooting
 
 ### Panorama Not Loading
+
 - Check image URL is accessible
 - Verify image format (must be equirectangular)
 - Check browser console for errors
 
 ### Hotspots Not Showing
+
 - Ensure `type: 'info'` (not 'scene')
 - Verify pitch (-90 to 90) and yaw (-180 to 180) ranges
 - Check each hotspot has unique `id`
 - Ensure hotspot has valid `shape` configuration
 
 ### API Connection Issues
+
 - Verify `NEXT_PUBLIC_API_URL` is set correctly
 - Check CORS settings on backend
 - Ensure backend is running and accessible
@@ -267,17 +281,6 @@ const USE_MOCK_DATA = true; // Set to false for production
 ## 📄 License
 
 [Add your license here]
-
-## 👥 Team
-
-- Frontend: [Your Team]
-- Backend: [Your Team]
-
-## 📞 Support
-
-For questions or issues:
-- Email: support@yourcompany.com
-- Phone: [Your Phone]
 
 ---
 

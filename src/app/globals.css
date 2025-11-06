@@ -1,27 +1,73 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-vazirmatn);
+@theme {
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(222.2 84% 4.9%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(222.2 84% 4.9%);
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(222.2 84% 4.9%);
+  --color-primary: hsl(222.2 47.4% 11.2%);
+  --color-primary-foreground: hsl(210 40% 98%);
+  --color-secondary: hsl(210 40% 96.1%);
+  --color-secondary-foreground: hsl(222.2 47.4% 11.2%);
+  --color-muted: hsl(210 40% 96.1%);
+  --color-muted-foreground: hsl(215.4 16.3% 46.9%);
+  --color-accent: hsl(210 40% 96.1%);
+  --color-accent-foreground: hsl(222.2 47.4% 11.2%);
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(210 40% 98%);
+  --color-border: hsl(214.3 31.8% 91.4%);
+  --color-input: hsl(214.3 31.8% 91.4%);
+  --color-ring: hsl(222.2 84% 4.9%);
+  --radius: 0.5rem;
+  --color-chart-1: hsl(12 76% 61%);
+  --color-chart-2: hsl(173 58% 39%);
+  --color-chart-3: hsl(197 37% 24%);
+  --color-chart-4: hsl(43 74% 66%);
+  --color-chart-5: hsl(27 87% 67%);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  @theme {
+    --color-background: hsl(222.2 84% 4.9%);
+    --color-foreground: hsl(210 40% 98%);
+    --color-card: hsl(222.2 84% 4.9%);
+    --color-card-foreground: hsl(210 40% 98%);
+    --color-popover: hsl(222.2 84% 4.9%);
+    --color-popover-foreground: hsl(210 40% 98%);
+    --color-primary: hsl(210 40% 98%);
+    --color-primary-foreground: hsl(222.2 47.4% 11.2%);
+    --color-secondary: hsl(217.2 32.6% 17.5%);
+    --color-secondary-foreground: hsl(210 40% 98%);
+    --color-muted: hsl(217.2 32.6% 17.5%);
+    --color-muted-foreground: hsl(215 20.2% 65.1%);
+    --color-accent: hsl(217.2 32.6% 17.5%);
+    --color-accent-foreground: hsl(210 40% 98%);
+    --color-destructive: hsl(0 62.8% 30.6%);
+    --color-destructive-foreground: hsl(210 40% 98%);
+    --color-border: hsl(217.2 32.6% 17.5%);
+    --color-input: hsl(217.2 32.6% 17.5%);
+    --color-ring: hsl(212.7 26.8% 83.9%);
+    --color-chart-1: hsl(220 70% 50%);
+    --color-chart-2: hsl(160 60% 45%);
+    --color-chart-3: hsl(30 80% 55%);
+    --color-chart-4: hsl(280 65% 60%);
+    --color-chart-5: hsl(340 75% 55%);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-vazirmatn), -apple-system, BlinkMacSystemFont, sans-serif;
+@layer base {
+  * {
+    border-color: hsl(var(--color-border));
+  }
+  body {
+    background-color: hsl(var(--color-background));
+    color: hsl(var(--color-foreground));
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont,
+      sans-serif;
+    font-size: 14px;
+  }
 }
 
 /* Panorama viewer custom styles */
@@ -30,11 +76,11 @@ body {
 }
 
 .pnlm-ui {
-  direction: ltr !important; /* Keep viewer controls LTR for consistency */
+  direction: ltr !important;
 }
 
 .pnlm-about-msg {
-  display: none !important; /* Hide pannellum branding */
+  display: none !important;
 }
 
 /* Hotspot custom styles */
@@ -48,9 +94,7 @@ body {
   justify-content: center;
   position: relative;
   z-index: 2;
-  /* Ensure transform-origin is at center for proper scaling */
   transform-origin: center center;
-  /* Prevent distortion when scaling */
   will-change: transform;
 }
 
@@ -61,8 +105,8 @@ body {
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.92);
   color: white;
-  padding: 14px 18px;
-  border-radius: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
@@ -70,9 +114,9 @@ body {
   transition: all 0.3s ease;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
-  direction: rtl;
-  text-align: right;
-  min-width: 220px;
+  direction: ltr;
+  text-align: left;
+  min-width: 200px;
   z-index: 1000;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -83,7 +127,7 @@ body {
 }
 
 .custom-tooltip::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -8px;
   left: 50%;
@@ -98,16 +142,16 @@ body {
 .hotspot-text {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
 
 .hotspot-title {
-  font-weight: bold;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 13px;
 }
 
 .hotspot-description {
-  font-size: 12px;
+  font-size: 11px;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -162,7 +206,8 @@ body {
 }
 
 @keyframes pulse-ring {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
   }
@@ -177,11 +222,11 @@ body {
 }
 
 @keyframes bounce-gentle {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
     transform: translateY(-3px);
   }
 }
-
