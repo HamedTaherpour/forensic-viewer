@@ -80,7 +80,7 @@ Visit the main page at [http://localhost:3000](http://localhost:3000) to view pa
 
 ### Editing Hotspots
 
-1. Click the **"حالت ویرایش"** (Edit Mode) button in the top-right corner
+1. Click the Edit Mode button in the top-right corner
 2. Select a hotspot to edit from the panorama or from the list below
 3. Use the sidebar editor to modify:
    - Position (Pitch/Yaw)
@@ -89,7 +89,7 @@ Visit the main page at [http://localhost:3000](http://localhost:3000) to view pa
    - Polygon points (add, remove, edit coordinates)
    - Text and description
 4. Save changes or create new hotspots
-5. Click **"حالت مشاهده"** (View Mode) to exit edit mode
+5. Click View Mode to exit edit mode
 
 For detailed instructions, see [`HOTSPOT_EDITOR_GUIDE.md`](./doc/HOTSPOT_EDITOR_GUIDE.md)
 
